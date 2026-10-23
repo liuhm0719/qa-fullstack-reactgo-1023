@@ -1,0 +1,39 @@
+{
+  "apiVersion": "astra/v1",
+  "kind": "Application",
+  "metadata": {
+    "name": "qa-fs-reactgo"
+  },
+  "spec": {
+    "components": {
+      "api": {
+        "type": "service",
+        "source": "api",
+        "runtime": {
+          "kind": "oci",
+          "dockerfile": "api/Dockerfile"
+        },
+        "health": {
+          "http": {
+            "path": "/health",
+            "port": 8080
+          }
+        }
+      },
+      "web": {
+        "type": "service",
+        "source": "web",
+        "runtime": {
+          "kind": "oci",
+          "dockerfile": "web/Dockerfile"
+        },
+        "health": {
+          "http": {
+            "path": "/health",
+            "port": 80
+          }
+        }
+      }
+    }
+  }
+}
