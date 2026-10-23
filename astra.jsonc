@@ -13,7 +13,8 @@
       "api": {
         "type": "service",
         "source": "api",
-        "runtime": { "kind": "oci", "dockerfile": "api/Dockerfile" }
+        "runtime": { "kind": "oci", "dockerfile": "api/Dockerfile" },
+        "health": { "http": { "path": "/health", "port": 8080 } }
       }
     },
     "environments": { "staging": { "target": "k3s", "vars": {} } }
