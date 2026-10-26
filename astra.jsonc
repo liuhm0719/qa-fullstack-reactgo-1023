@@ -17,6 +17,9 @@
         "health": { "http": { "path": "/health", "port": 8080 } }
       }
     },
+    "resources": {
+      "db": { "type": "postgres" }
+    },
     "environments": { "staging": { "target": "k3s", "vars": {} } }
   }
 }
